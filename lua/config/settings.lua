@@ -9,8 +9,8 @@ vim.opt.termguicolors = true
 
 -- Set the line number and make it relative
 vim.wo.cursorcolumn = true
-vim.wo.cursorline = true
-vim.wo.so = 15
+-- vim.wo.cursorline = true
+-- vim.wo.so = 15
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.opt.scrolloff = 999
