@@ -11,16 +11,17 @@ return {
 		layout = { enabled = true },
 		picker = { enabled = false },
 		notifier = { enabled = true },
-        notify = { enabled = true },
+		notify = { enabled = true },
 		quickfile = { enabled = true },
 		scope = { enabled = true },
 		scroll = { enabled = true },
 		statuscolumn = { enabled = true },
 		words = { enabled = true },
-        bufdekete = { enabled = true },
-        dim = { enabled = true },
+		bufdekete = { enabled = true },
+		dim = { enabled = true },
 	},
 	keys = {
+		-- Top Pickers & Explorer
 		{
 			"<leader><space>",
 			function()
@@ -63,99 +64,128 @@ return {
 			end,
 			desc = "File Explorer",
 		},
-		-- LSP
+		-- find
 		{
-			"gd",
+			"<leader>fb",
 			function()
-				Snacks.picker.lsp_definitions()
+				Snacks.picker.buffers()
 			end,
-			desc = "Goto Definition",
+			desc = "Buffers",
 		},
 		{
-			"gD",
+			"<leader>fc",
 			function()
-				Snacks.picker.lsp_declarations()
+				Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
 			end,
-			desc = "Goto Declaration",
+			desc = "Find Config File",
 		},
 		{
-			"gr",
+			"<leader>ff",
 			function()
-				Snacks.picker.lsp_references()
+				Snacks.picker.files()
 			end,
-			nowait = true,
-			desc = "References",
+			desc = "Find Files",
 		},
 		{
-			"gI",
+			"<leader>fg",
 			function()
-				Snacks.picker.lsp_implementations()
+				Snacks.picker.git_files()
 			end,
-			desc = "Goto Implementation",
+			desc = "Find Git Files",
 		},
 		{
-			"gy",
+			"<leader>fp",
 			function()
-				Snacks.picker.lsp_type_definitions()
+				Snacks.picker.projects()
 			end,
-			desc = "Goto T[y]pe Definition",
+			desc = "Projects",
 		},
 		{
-			"<leader>ss",
+			"<leader>fr",
 			function()
-				Snacks.picker.lsp_symbols()
+				Snacks.picker.recent()
 			end,
-			desc = "LSP Symbols",
+			desc = "Recent",
+		},
+		-- git
+		{
+			"<leader>gb",
+			function()
+				Snacks.picker.git_branches()
+			end,
+			desc = "Git Branches",
 		},
 		{
-			"<leader>sS",
+			"<leader>gl",
 			function()
-				Snacks.picker.lsp_workspace_symbols()
+				Snacks.picker.git_log()
 			end,
-			desc = "LSP Workspace Symbols",
-		},
-		-- Other
-		{
-			"<leader>z",
-			function()
-				Snacks.zen()
-			end,
-			desc = "Toggle Zen Mode",
+			desc = "Git Log",
 		},
 		{
-			"<leader>n",
+			"<leader>gL",
 			function()
-				Snacks.notifier.show_history()
+				Snacks.picker.git_log_line()
 			end,
-			desc = "Notification History",
+			desc = "Git Log Line",
 		},
 		{
-			"<leader>bd",
+			"<leader>gs",
 			function()
-				Snacks.bufdelete()
+				Snacks.picker.git_status()
 			end,
-			desc = "Delete Buffer",
+			desc = "Git Status",
 		},
 		{
-			"<leader>cR",
+			"<leader>gS",
 			function()
-				Snacks.rename.rename_file()
+				Snacks.picker.git_stash()
 			end,
-			desc = "Rename File",
+			desc = "Git Stash",
 		},
 		{
-			"<leader>un",
+			"<leader>gd",
 			function()
-				Snacks.notifier.hide()
+				Snacks.picker.git_diff()
 			end,
-			desc = "Dismiss All Notifications",
+			desc = "Git Diff (Hunks)",
 		},
 		{
-			"<c-/>",
+			"<leader>gf",
 			function()
-				Snacks.terminal()
+				Snacks.picker.git_log_file()
 			end,
-			desc = "Toggle Terminal",
+			desc = "Git Log File",
+		},
+		-- Grep
+		{
+			"<leader>sb",
+			function()
+				Snacks.picker.lines()
+			end,
+			desc = "Buffer Lines",
+		},
+		{
+			"<leader>sB",
+			function()
+				Snacks.picker.grep_buffers()
+			end,
+			desc = "Grep Open Buffers",
+		},
+		{
+			"<leader>sg",
+			function()
+				Snacks.picker.grep()
+			end,
+			desc = "Grep",
+		},
+		{
+			"<leader>sw",
+			function()
+				Snacks.picker.grep_word()
+			end,
+			desc = "Visual selection or word",
+			mode = { "n", "x" },
 		},
 		-- search
 		{
@@ -283,6 +313,198 @@ return {
 				Snacks.picker.qflist()
 			end,
 			desc = "Quickfix List",
+		},
+		{
+			"<leader>sR",
+			function()
+				Snacks.picker.resume()
+			end,
+			desc = "Resume",
+		},
+		{
+			"<leader>su",
+			function()
+				Snacks.picker.undo()
+			end,
+			desc = "Undo History",
+		},
+		{
+			"<leader>uC",
+			function()
+				Snacks.picker.colorschemes()
+			end,
+			desc = "Colorschemes",
+		},
+		-- LSP
+		{
+			"gd",
+			function()
+				Snacks.picker.lsp_definitions()
+			end,
+			desc = "Goto Definition",
+		},
+		{
+			"gD",
+			function()
+				Snacks.picker.lsp_declarations()
+			end,
+			desc = "Goto Declaration",
+		},
+		{
+			"gr",
+			function()
+				Snacks.picker.lsp_references()
+			end,
+			nowait = true,
+			desc = "References",
+		},
+		{
+			"gI",
+			function()
+				Snacks.picker.lsp_implementations()
+			end,
+			desc = "Goto Implementation",
+		},
+		{
+			"gy",
+			function()
+				Snacks.picker.lsp_type_definitions()
+			end,
+			desc = "Goto T[y]pe Definition",
+		},
+		{
+			"<leader>ss",
+			function()
+				Snacks.picker.lsp_symbols()
+			end,
+			desc = "LSP Symbols",
+		},
+		{
+			"<leader>sS",
+			function()
+				Snacks.picker.lsp_workspace_symbols()
+			end,
+			desc = "LSP Workspace Symbols",
+		},
+		-- Other
+		{
+			"<leader>z",
+			function()
+				Snacks.zen()
+			end,
+			desc = "Toggle Zen Mode",
+		},
+		{
+			"<leader>Z",
+			function()
+				Snacks.zen.zoom()
+			end,
+			desc = "Toggle Zoom",
+		},
+		{
+			"<leader>.",
+			function()
+				Snacks.scratch()
+			end,
+			desc = "Toggle Scratch Buffer",
+		},
+		{
+			"<leader>S",
+			function()
+				Snacks.scratch.select()
+			end,
+			desc = "Select Scratch Buffer",
+		},
+		{
+			"<leader>n",
+			function()
+				Snacks.notifier.show_history()
+			end,
+			desc = "Notification History",
+		},
+		{
+			"<leader>bd",
+			function()
+				Snacks.bufdelete()
+			end,
+			desc = "Delete Buffer",
+		},
+		{
+			"<leader>cR",
+			function()
+				Snacks.rename.rename_file()
+			end,
+			desc = "Rename File",
+		},
+		{
+			"<leader>gB",
+			function()
+				Snacks.gitbrowse()
+			end,
+			desc = "Git Browse",
+			mode = { "n", "v" },
+		},
+		{
+			"<leader>gg",
+			function()
+				Snacks.lazygit()
+			end,
+			desc = "Lazygit",
+		},
+		{
+			"<leader>un",
+			function()
+				Snacks.notifier.hide()
+			end,
+			desc = "Dismiss All Notifications",
+		},
+		{
+			"<c-/>",
+			function()
+				Snacks.terminal()
+			end,
+			desc = "Toggle Terminal",
+		},
+		{
+			"<c-_>",
+			function()
+				Snacks.terminal()
+			end,
+			desc = "which_key_ignore",
+		},
+		{
+			"]]",
+			function()
+				Snacks.words.jump(vim.v.count1)
+			end,
+			desc = "Next Reference",
+			mode = { "n", "t" },
+		},
+		{
+			"[[",
+			function()
+				Snacks.words.jump(-vim.v.count1)
+			end,
+			desc = "Prev Reference",
+			mode = { "n", "t" },
+		},
+		{
+			"<leader>N",
+			desc = "Neovim News",
+			function()
+				Snacks.win({
+					file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
+					width = 0.6,
+					height = 0.6,
+					wo = {
+						spell = false,
+						wrap = false,
+						signcolumn = "yes",
+						statuscolumn = " ",
+						conceallevel = 3,
+					},
+				})
+			end,
 		},
 	},
 }
