@@ -8,6 +8,8 @@ return {
         highlight = {
             enable = true,
         },
+        auto_install = true,
+        additional_vim_regex_highlighting = true,
     },
     keys = {
         { '<c-space>', desc = 'Increment Selection' },

@@ -5,7 +5,7 @@
 -- vim.g.loaded_netrwPlugin = 1
 
 -- Enable 24-bit colour
-vim.opt.termguicolors = true
+vim.opt.termguicolors = false
 
 -- Set the line number and make it relative
 -- vim.wo.cursorcolumn = true

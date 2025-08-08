@@ -28,13 +28,26 @@ return {
 						completion = {
 							callSnippet = "Replace",
 						},
-                        diagnostics = {
-                            globals = {"vim", "Snacks"},
-                        },
+						diagnostics = {
+							globals = { "vim", "Snacks" },
+						},
 					},
 				},
 			},
-			pyright = {},
+			pyright = {
+				settings = {
+					python = {},
+				},
+				root_markers = {
+					"pyproject.toml",
+					"setup.py",
+					"setup.cfg",
+					"requirements.txt",
+					"Pipfile",
+					"pyrightconfig.json",
+					".git",
+				},
+			},
 		},
 	},
 	config = function(_, opts)
