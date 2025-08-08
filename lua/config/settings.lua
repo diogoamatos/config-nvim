@@ -1,19 +1,19 @@
 -- [[ Setting options ]]
 
 -- disable netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 -- Enable 24-bit colour
 vim.opt.termguicolors = true
 
 -- Set the line number and make it relative
-vim.wo.cursorcolumn = true
--- vim.wo.cursorline = true
+-- vim.wo.cursorcolumn = true
+vim.o.cursorline = true
 -- vim.wo.so = 15
-vim.wo.number = true
-vim.wo.relativenumber = true
-vim.opt.scrolloff = 999
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.scrolloff = 999
 
 vim.o.hlsearch = false
 vim.o.mouse = "a"

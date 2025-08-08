@@ -29,7 +29,7 @@ return {
 							callSnippet = "Replace",
 						},
                         diagnostics = {
-                            globals = {"vim"},
+                            globals = {"vim", "Snacks"},
                         },
 					},
 				},

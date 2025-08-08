@@ -9,13 +9,16 @@ return {
 		indent = { enabled = true },
 		input = { enabled = true },
 		layout = { enabled = true },
-		picker = { enabled = true },
+		picker = { enabled = false },
 		notifier = { enabled = true },
+        notify = { enabled = true },
 		quickfile = { enabled = true },
 		scope = { enabled = true },
 		scroll = { enabled = true },
 		statuscolumn = { enabled = true },
 		words = { enabled = true },
+        bufdekete = { enabled = true },
+        dim = { enabled = true },
 	},
 	keys = {
 		{
