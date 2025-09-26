@@ -4,7 +4,7 @@ return {
     lazy = false,
     build = ":TSUpdate",
     opts = {
-        ensure_installed = {"c", "lua", "python", "html", "tsx", "javascript", "tsx", "css"}, 
+        ensure_installed = {"c", "lua", "python", "html", "tsx", "javascript", "tsx", "css", "regex"},
         highlight = {
             enable = true,
         },
