@@ -9,7 +9,14 @@ return {
 		indent = { enabled = true },
 		input = { enabled = true },
 		layout = { enabled = false },
-		picker = { enabled = true },
+		picker = {
+			sources = {
+				explorer = {
+					exclude = { "__pycache__", "node_modules", ".git" },
+					follow_file = true,
+				},
+			},
+		},
 		notifier = { enabled = true },
 		notify = { enabled = true },
 		quickfile = { enabled = true },
@@ -18,7 +25,7 @@ return {
 		statuscolumn = { enabled = true },
 		words = { enabled = true },
 		bufdekete = { enabled = true },
-		dim = { enabled = true },
+		dim = { enabled = false },
 	},
 	keys = {
 		-- Top Pickers & Explorer
