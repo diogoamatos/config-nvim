@@ -12,8 +12,8 @@ vim.opt.termguicolors = false
 vim.o.cursorline = true
 -- vim.wo.so = 15
 vim.o.number = true
-vim.o.relativenumber = true
-vim.o.scrolloff = 999
+vim.opt.relativenumber = true
+vim.opt.scrolloff = 12
 
 vim.o.hlsearch = false
 vim.o.mouse = "a"
