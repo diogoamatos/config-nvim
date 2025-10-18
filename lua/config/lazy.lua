@@ -18,7 +18,13 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup({
 	spec = {
-		{ import = "plugins" },
+		-- { import = "plugins" },
+		{ import = "plugins/snacks" },
+		{ import = "plugins/lualine" },
+		{ import = "plugins/colorscheme" },
+		{ import = "plugins/which-key" },
+        { import = "plugins/no-config" },
+        { import = "plugins/nvim-treesitter" },
 	},
 	install = { colorscheme = { "onedark" } },
 	checker = { enabled = true },

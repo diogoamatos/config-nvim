@@ -12,7 +12,7 @@ return {
         additional_vim_regex_highlighting = true,
     },
     keys = {
-        { '<c-space>', desc = 'Increment Selection' },
-        { '<bs>', desc = 'Decrement Selection', mode = 'x' },
+        -- { '<c-space>', desc = 'Increment Selection' },
+        -- { '<bs>', desc = 'Decrement Selection', mode = 'x' },
     }
 }

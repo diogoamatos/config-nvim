@@ -10,10 +10,9 @@ vim.opt.termguicolors = false
 -- Set the line number and make it relative
 -- vim.wo.cursorcolumn = true
 vim.o.cursorline = true
--- vim.wo.so = 15
 vim.o.number = true
 vim.opt.relativenumber = true
-vim.opt.scrolloff = 12
+vim.opt.scrolloff = 99
 
 vim.o.hlsearch = false
 vim.o.mouse = "a"
