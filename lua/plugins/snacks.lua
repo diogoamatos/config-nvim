@@ -8,7 +8,7 @@ return {
 		explorer = { enabled = true },
 		indent = { enabled = true },
 		input = { enabled = true },
-		layout = { enabled = false },
+    		layout = { enabled = false },
 		picker = {
 			sources = {
 				explorer = {

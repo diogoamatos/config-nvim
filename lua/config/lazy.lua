@@ -25,6 +25,8 @@ require("lazy").setup({
 		{ import = "plugins/which-key" },
         { import = "plugins/no-config" },
         { import = "plugins/nvim-treesitter" },
+		{ import = "plugins/conform-formatter" },
+		{ import = "plugins/blink-cmp" },
 	},
 	install = { colorscheme = { "onedark" } },
 	checker = { enabled = true },
