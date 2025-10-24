@@ -27,6 +27,7 @@ require("lazy").setup({
         { import = "plugins/nvim-treesitter" },
 		{ import = "plugins/conform-formatter" },
 		{ import = "plugins/blink-cmp" },
+		{ import = "plugins/lsp" },
 	},
 	install = { colorscheme = { "onedark" } },
 	checker = { enabled = true },
