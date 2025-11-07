@@ -1,16 +1,12 @@
 return {
 	{
 		"saghen/blink.compat",
-		-- use v2.* for blink.cmp v1.*
 		version = "2.*",
-		-- lazy.nvim will automatically load the plugin when it's required by blink.cmp
 		lazy = true,
-		-- make sure to set opts so that lazy.nvim calls blink.compat's setup
 		opts = {},
 	},
 	{
 		"saghen/blink.cmp",
-		-- optional: provides snippets for the snippet source
 		dependencies = {
 			"rafamadriz/friendly-snippets",
 		},
@@ -34,14 +30,12 @@ return {
 			appearance = {
 				-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
 				-- Adjusts spacing to ensure icons are aligned
-				nerd_font_variant = "mono",
+				nerd_font_variant = "Nerd Font",
 			},
 
 			-- (Default) Only show the documentation popup when manually triggered
 			completion = { documentation = { auto_show = true } },
 
-			-- Default list of enabled providers defined so that you can extend it
-			-- elsewhere in your config, without redefining it, due to `opts_extend`
 			sources = {
 				default = { "lsp", "path", "snippets", "buffer" },
 			},
@@ -58,9 +52,7 @@ return {
 		ft = "lua", -- only load on lua files
 		opts = {
 			library = {
-				-- See the configuration section for more details
-				-- Load luvit types when the `vim.uv` word is found
-				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+				{ path = "${3rd}/luv/library", words = { "vim.uv" } },
 			},
 		},
 	},
