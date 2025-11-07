@@ -20,7 +20,6 @@ require("lazy").setup({
 	spec = {
 		-- { import = "plugins" },
 		{ import = "plugins/snacks" },
-		{ import = "plugins/lualine" },
 		{ import = "plugins/colorscheme" },
 		{ import = "plugins/which-key" },
         { import = "plugins/no-config" },
@@ -28,6 +27,7 @@ require("lazy").setup({
 		{ import = "plugins/conform-formatter" },
 		{ import = "plugins/blink-cmp" },
 		{ import = "plugins/lsp" },
+		{ import = "plugins/nvim-dap" },
 	},
 	install = { colorscheme = { "onedark" } },
 	checker = { enabled = true },
