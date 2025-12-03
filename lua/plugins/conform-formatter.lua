@@ -3,7 +3,7 @@ return {
 	opts = {},
 	keys = {
 		{
-			"<leader>fb",
+			"<leader>sf",
 			function()
 				require("conform").format({ async = true, lsp_format = "fallback" })
 			end,

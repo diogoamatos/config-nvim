@@ -35,13 +35,7 @@ return {
 				end,
 				desc = "Run/Continue",
 			},
-			{
-				"<leader>da",
-				function()
-					require("dap").continue({ before = get_args })
-				end,
-				desc = "Run with Args",
-			},
+			-- {"<leader>da", function() require("dap").continue({ before = get_args }) end, desc = "Run with Args",},
 			{
 				"<leader>dC",
 				function()
@@ -157,8 +151,6 @@ return {
 			-- see mason-nvim-dap README for more information
 			handlers = {},
 
-			-- You'll need to check that you have the required things installed
-			-- online, please don't ask me how to install them :)
 			ensure_installed = {
 				-- Update this to ensure that you have the debuggers for the langs you want
 			},
@@ -169,11 +161,23 @@ return {
 	{
 		"rcarriga/nvim-dap-ui",
 		dependencies = { "nvim-neotest/nvim-nio" },
-  -- stylua: ignore
-        keys = {
-            { "<leader>du", function() require("dapui").toggle({ }) end, desc = "Dap UI" },
-            { "<leader>de", function() require("dapui").eval() end, desc = "Eval", mode = {"n", "x"} },
-        },
+		keys = {
+			{
+				"<leader>du",
+				function()
+					require("dapui").toggle({})
+				end,
+				desc = "Dap UI",
+			},
+			{
+				"<leader>de",
+				function()
+					require("dapui").eval()
+				end,
+				desc = "Eval",
+				mode = { "n", "x" },
+			},
+		},
 		opts = {},
 		config = function(_, opts)
 			local dap = require("dap")

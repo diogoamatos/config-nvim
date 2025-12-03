@@ -8,11 +8,10 @@
 vim.opt.termguicolors = false
 
 -- Set the line number and make it relative
--- vim.wo.cursorcolumn = true
-vim.o.cursorline = true
-vim.o.number = true
+vim.opt.cursorline = true
+vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.scrolloff = 99
+vim.opt.scrolloff = 999
 
 vim.o.hlsearch = false
 vim.o.mouse = "a"
@@ -41,9 +40,9 @@ vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 vim.o.completeopt = "menuone,noselect"
 
-vim.o.list = true
+vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
-vim.o.confirm = true
+vim.opt.confirm = true
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
