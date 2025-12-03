@@ -131,14 +131,6 @@ return {
 		config = function() end,
 	},
 	{
-		"mfussenegger/nvim-dap-python",
-		opts = {},
-		dependencies = "mfussenegger/nvim-dap",
-		config = function()
-			require("dap-python").setup("python3")
-		end,
-	},
-	{
 		"jay-babu/mason-nvim-dap.nvim",
 		dependencies = "mason.nvim",
 		cmd = { "DapInstall", "DapUninstall" },
