@@ -6,6 +6,8 @@ vim.g.mapleader = " "
 
 keymap("n", "<space>", "<Nop>")
 
+keymap("n", "<leader>e", ":Explore<CR>") -- show NetRW explore
+
 keymap("n", "j", function()
     return tonumber(vim.api.nvim_get_vvar("count")) > 0 and "j" or "gj"
 end, { expr = true, silent = true }) -- Move down, but use 'gj' if no count is given
@@ -28,3 +30,7 @@ keymap("n", "<leader>cd", '<cmd>lua vim.fn.chdir(vim.fn.expand("%:p:h"))<CR>')
 
 local opts = { noremap = true, silent = true }
 keymap("n", "grd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts) -- Go to definition
+
+
+keymap("n", "<leader>ff", '<cmd>FzfLua files<CR>')
+keymap("n", "<leader>fg", '<cmd>FzfLua live_grep<CR>')

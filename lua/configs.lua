@@ -2,7 +2,7 @@
 local opt = vim.opt
 opt.guicursor = "i:block" -- Use block cursor in insert mode
 opt.colorcolumn = "80" -- Highlight column 80
-opt.signcolumn = "yes:1" -- Always show sign column
+opt.signcolumn = "yes" -- Always show sign column
 opt.termguicolors = true -- Enable true colors
 opt.ignorecase = true -- Ignore case in search
 opt.swapfile = false -- Disable swap files
@@ -23,9 +23,13 @@ opt.scrolloff = 8 -- Keep 8 lines above and below the cursor
 opt.inccommand = "nosplit" -- Shows the effects of a command incrementally in the buffer
 opt.undodir = os.getenv('HOME') .. '/.vim/undodir' -- Directory for undo files
 opt.undofile = true -- Enable persistent undo
-opt.completeopt = { "menuone", "popup", "noinsert" } -- Options for completion menu
+opt.completeopt = {"fuzzy", "menuone", "popup", "noselect" } -- Options for completion menu
 opt.winborder = "rounded" -- Use rounded borders for windows
 opt.hlsearch = false -- Disable highlighting of search results
 
 vim.cmd.filetype("plugin indent on") -- Enable filetype detection, plugins, and indentation
 
+
+-- opt.complete = ".,o"
+-- opt.autocomplete = true
+-- opt.pumheight = 7
