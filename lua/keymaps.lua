@@ -31,6 +31,12 @@ keymap("n", "<leader>cd", '<cmd>lua vim.fn.chdir(vim.fn.expand("%:p:h"))<CR>')
 local opts = { noremap = true, silent = true }
 keymap("n", "grd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts) -- Go to definition
 
-
+-- Fuzzy finders
 keymap("n", "<leader>ff", '<cmd>FzfLua files<CR>')
 keymap("n", "<leader>fg", '<cmd>FzfLua live_grep<CR>')
+
+-- Miniharp
+keymap("n", "<leader>m", '<cmd>lua require("miniharp").toggle_file()<CR>')
+keymap("n", "<leader>l", '<cmd>lua require("miniharp").show_list()<CR>')
+keymap("n", "<C-n>", require("miniharp").next)
+keymap("n", "<C-p>", require("miniharp").prev)
