@@ -6,8 +6,6 @@ vim.g.mapleader = " "
 
 keymap("n", "<space>", "<Nop>")
 
-keymap("n", "<leader>e", ":Explore<CR>") -- show NetRW explore
-
 keymap("n", "j", function()
     return tonumber(vim.api.nvim_get_vvar("count")) > 0 and "j" or "gj"
 end, { expr = true, silent = true }) -- Move down, but use 'gj' if no count is given
@@ -40,3 +38,6 @@ keymap("n", "<leader>m", '<cmd>lua require("miniharp").toggle_file()<CR>')
 keymap("n", "<leader>l", '<cmd>lua require("miniharp").show_list()<CR>')
 keymap("n", "<C-n>", require("miniharp").next)
 keymap("n", "<C-p>", require("miniharp").prev)
+
+-- Neo-tree
+keymap("n", "<leader>e", '<cmd>Neotree toggle<CR>')

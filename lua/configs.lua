@@ -1,4 +1,8 @@
 -- ~/.config/nvim/lua/configs.lua
+
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 local opt = vim.opt
 opt.guicursor = "i:block" -- Use block cursor in insert mode
 opt.colorcolumn = "80" -- Highlight column 80

@@ -1,17 +1,25 @@
 vim.pack.add({
     { src = "https://github.com/lewis6991/gitsigns.nvim" },
     { src = "https://github.com/mason-org/mason.nvim" },
-    { src = "https://github.com/saghen/blink.cmp",            version = vim.version.range("^1") },
-    { src = "https://github.com/prichrd/netrw.nvim" },
+    {
+        src = "https://github.com/saghen/blink.cmp",
+        version = vim.version.range("^1")
+    },
     { src = "https://github.com/nvim-tree/nvim-web-devicons" },
     { src = "https://github.com/tiagovla/tokyodark.nvim" },
     { src = "https://github.com/ibhagwan/fzf-lua" },
     { src = "https://github.com/vieitesss/miniharp.nvim" },
     { src = "https://github.com/rafamadriz/friendly-snippets" },
+    { src = "https://github.com/nvim-lua/plenary.nvim" },
+    { src = "https://github.com/MunifTanjim/nui.nvim" },
+    {
+        src = 'https://github.com/nvim-neo-tree/neo-tree.nvim',
+        version = vim.version.range('3')
+    },
 })
 
 require("tokyodark").setup({})
-require("netrw").setup({})
+require("neo-tree").setup({})
 require('gitsigns').setup({ signcolumn = true })
 require('mason').setup({})
 require('blink.cmp').setup({
