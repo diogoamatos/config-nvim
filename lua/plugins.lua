@@ -16,6 +16,7 @@ vim.pack.add({
         src = 'https://github.com/nvim-neo-tree/neo-tree.nvim',
         version = vim.version.range('3')
     },
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 })
 
 require("tokyodark").setup({})
@@ -95,4 +96,8 @@ require('fzf-lua').setup({
     }
 })
 
+require("nvim-treesitter").setup({
+    install = {'lua', 'html', 'python', 'bash'},
+    build = ':TSupdate',
+})
 vim.cmd.colorscheme("tokyodark")
