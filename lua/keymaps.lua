@@ -30,8 +30,8 @@ local opts = { noremap = true, silent = true }
 keymap("n", "grd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts) -- Go to definition
 
 -- Fuzzy finders
-keymap("n", "<leader>ff", '<cmd>FzfLua files<CR>')
-keymap("n", "<leader>fg", '<cmd>FzfLua live_grep<CR>')
+keymap("n", "<leader><leader>", '<cmd>FzfLua files<CR>')
+keymap("n", "<leader>/", '<cmd>FzfLua live_grep<CR>')
 
 -- Miniharp
 keymap("n", "<leader>m", '<cmd>lua require("miniharp").toggle_file()<CR>')
@@ -41,3 +41,7 @@ keymap("n", "<C-p>", require("miniharp").prev)
 
 -- Neo-tree
 keymap("n", "<leader>e", '<cmd>Neotree toggle<CR>')
+
+-- tabs navigation
+keymap("n", "<C-l>", '<cmd>bnext<CR>') 
+keymap("n", "<C-h>", '<cmd>bprev<CR>') 
