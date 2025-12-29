@@ -5,22 +5,17 @@ vim.pack.add {
 }
 
 local ensure_installed = {
+    "pyright",
+    "lua_ls",
     "isort",
     "black",
     "prettier",
     "djlint",
-    "pyright",
-    "lua_ls",
-    "djlint",
 }
 
+require("mason").setup({})
 require("mason-tool-installer").setup({ ensure_installed = ensure_installed})
+
 require('mason-lspconfig').setup({})
 
-vim.lsp.enable({
-    "bashls",
-    "lua_ls",
-    "pyright",
-    -- "ts_ls",
-})
 vim.diagnostic.config({ virtual_text = true })
