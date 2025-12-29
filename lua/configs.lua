@@ -24,8 +24,8 @@ opt.numberwidth = 2 -- Width of the line number column
 
 -- text wrap
 opt.wrap = true
-opt.linebreak = true
-opt.textwidth = 80
+opt.linebreak = false
+opt.textwidth = 0
 opt.wrapmargin = 0
 
 opt.cursorline = true -- Highlight the current line
