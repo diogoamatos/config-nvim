@@ -31,7 +31,6 @@ keymap("n", "<leader>cd", '<cmd>lua vim.fn.chdir(vim.fn.expand("%:p:h"))<CR>')
 local opts = { noremap = true, silent = true }
 keymap("n", "grd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 -- keymap("n", "<Leader>fo", ":lua vim.lsp.buf.format()<CR>")
-keymap("n", "<Leader>fo", ":lua require('conform').format()<CR>")
 
 -- Fuzzy finders
 keymap("n", "<leader><leader>", "<cmd>FzfLua files<CR>")
