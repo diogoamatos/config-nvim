@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 
+require('colorscheme')
 require('plugins')
 require('configs')
 require('keymaps')
