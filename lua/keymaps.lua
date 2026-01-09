@@ -7,8 +7,8 @@ vim.g.mapleader = " "
 keymap({ "n", "v" }, "<space>", "<Nop>")
 
 -- Remap for dealing with word wrap and movement
-keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+keymap("n", "k", "v:count == 0 ? 'gkzz' : 'k'", { expr = true, silent = true })
+keymap("n", "j", "v:count == 0 ? 'gjzz' : 'j'", { expr = true, silent = true })
 keymap("v", "J", ":m '>+1<CR>gv=gv")
 keymap("v", "K", ":m '<-2<CR>gv=gv")
 keymap("n", "J", "mzJ`z")

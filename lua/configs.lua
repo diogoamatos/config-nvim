@@ -20,22 +20,22 @@ opt.listchars = "tab: ,multispace:|   ," -- Characters to show for tabs, spac
 opt.list = true -- Show whitespace characters
 opt.number = true -- Show line numbers
 opt.relativenumber = true -- Show relative line numbers
-opt.numberwidth = 2 -- Width of the line number column
+opt.numberwidth = 1 -- Width of the line number column
 
 -- text wrap
 opt.wrap = true
-opt.linebreak = false
+opt.linebreak = true
 opt.textwidth = 0
 opt.wrapmargin = 0
 
-opt.cursorline = true -- Highlight the current line
-opt.scrolloff = 99
-opt.inccommand = "nosplit" -- Shows the effects of a command incrementally in the buffer
-opt.undodir = os.getenv('HOME') .. '/.vim/undodir' -- Directory for undo files
-opt.undofile = true -- Enable persistent undo
-opt.completeopt = {"fuzzy", "menuone", "popup", "noselect" } -- Options for completion menu
-opt.winborder = "rounded" -- Use rounded borders for windows
-opt.hlsearch = false -- Disable highlighting of search results
+opt.cursorline = true
+opt.scrolloff = 999
+opt.inccommand = "nosplit"
+opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
+opt.undofile = true
+opt.completeopt = { "fuzzy", "menuone", "popup", "noselect" }
+opt.winborder = "rounded"
+opt.hlsearch = true
 
 vim.cmd.filetype("plugin indent on") -- Enable filetype detection, plugins, and indentation
 
