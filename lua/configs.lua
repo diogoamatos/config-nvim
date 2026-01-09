@@ -30,6 +30,7 @@ opt.wrapmargin = 0
 
 opt.cursorline = true
 opt.scrolloff = 999
+opt.smoothscroll = true
 opt.inccommand = "nosplit"
 opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
 opt.undofile = true
