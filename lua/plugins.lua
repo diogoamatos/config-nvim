@@ -7,7 +7,6 @@ vim.pack.add({
     },
     { src = "https://github.com/nvim-tree/nvim-web-devicons" },
     { src = "https://github.com/ibhagwan/fzf-lua" },
-    { src = "https://github.com/vieitesss/miniharp.nvim" },
     { src = "https://github.com/rafamadriz/friendly-snippets" },
     { src = "https://github.com/nvim-lua/plenary.nvim" },
     { src = "https://github.com/MunifTanjim/nui.nvim" },
@@ -18,6 +17,15 @@ vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
     { src = "https://github.com/folke/noice.nvim" },
     { src = "https://github.com/rcarriga/nvim-notify" },
+    { src = "https://github.com/Aasim-A/scrollEOF.nvim" },
+})
+
+
+-- Default settings
+require('scrollEOF').setup({
+    insert_mode = true,
+    floating = false,
+    disabled_modes = { 't', 'nt' },
 })
 
 require("neo-tree").setup({})
