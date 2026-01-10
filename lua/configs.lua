@@ -29,12 +29,12 @@ opt.textwidth = 0
 opt.wrapmargin = 0
 
 opt.cursorline = true
-opt.scrolloff = 999
+opt.scrolloff = 20
 opt.smoothscroll = true
 opt.inccommand = "nosplit"
 opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
 opt.undofile = true
-opt.completeopt = { "fuzzy", "menuone", "popup", "noselect" }
+opt.completeopt = { "fuzzy", "noinsert", "popup", "noselect" }
 opt.winborder = "rounded"
 opt.hlsearch = true
 

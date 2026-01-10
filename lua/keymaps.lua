@@ -7,13 +7,13 @@ vim.g.mapleader = " "
 keymap({ "n", "v" }, "<space>", "<Nop>")
 
 -- Remap for dealing with word wrap and movement
-keymap("v", "J", ":m '>+1<CR>gv=gv")
-keymap("v", "K", ":m '<-2<CR>gv=gv")
-keymap("n", "J", "mzJ`z")
+keymap("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down.", noremap = true, silent = true })
+keymap("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up.", noremap = true, silent = true })
+keymap("n", "J", "mzJ`z", { desc = "Joins current line with line below " })
 
 -- Scroll and center the cursor
-keymap("n", "<C-d>", "<C-d>zz")
-keymap("n", "<C-u>", "<C-u>zz")
+-- keymap("n", "<C-d>", "<C-d>zz")
+-- keymap("n", "<C-u>", "<C-u>zz")
 
 keymap("n", "<C-s>", "<cmd>w!<CR>", { desc = "Save current file." })
 keymap("n", "<leader>q", "<cmd>q<CR>", s)      -- Quit Neovim

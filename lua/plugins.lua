@@ -17,18 +17,24 @@ vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
     { src = "https://github.com/folke/noice.nvim" },
     { src = "https://github.com/rcarriga/nvim-notify" },
-    { src = "https://github.com/Aasim-A/scrollEOF.nvim" },
 })
 
-
--- Default settings
-require('scrollEOF').setup({
-    insert_mode = true,
-    floating = false,
-    disabled_modes = { 't', 'nt' },
+require("neo-tree").setup({
+    filesystem = {
+        follow_current_file = {
+            enabled = true,
+            Leave_open = false,
+        },
+    },
+    event_handlers = {
+        {
+            event = "file_open_requested",
+            handler = function()
+                require("neo-tree.command").execute({ action = "close" })
+            end
+        }
+    }
 })
-
-require("neo-tree").setup({})
 require("gitsigns").setup({ signcolumn = true })
 require("mason").setup({})
 require("blink.cmp").setup({
@@ -89,8 +95,6 @@ require("fzf-lua").setup({
             ["ctrl-a"] = "toggle-all",
             ["ctrl-t"] = "first",
             ["ctrl-g"] = "last",
-            ["alt-j"]  = "preview-page-down",
-            ["alt-k"]  = "preview-page-up",
         },
     },
     actions = {
