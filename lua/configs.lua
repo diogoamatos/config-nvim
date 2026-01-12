@@ -36,7 +36,7 @@ opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
 opt.undofile = true
 opt.completeopt = { "fuzzy", "noinsert", "popup", "noselect" }
 opt.winborder = "rounded"
-opt.hlsearch = true
+opt.hlsearch = false
 
 vim.cmd.filetype("plugin indent on") -- Enable filetype detection, plugins, and indentation
 
