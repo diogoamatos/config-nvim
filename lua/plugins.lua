@@ -17,8 +17,10 @@ vim.pack.add({
     { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
     { src = "https://github.com/folke/noice.nvim" },
     { src = "https://github.com/rcarriga/nvim-notify" },
+    { src = "https://github.com/reybits/scratch.nvim" },
 })
 
+require("scratch").setup({})
 require("neo-tree").setup({
     filesystem = {
         follow_current_file = {

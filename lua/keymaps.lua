@@ -27,12 +27,12 @@ keymap("n", "<leader>cd", '<cmd>lua vim.fn.chdir(vim.fn.expand("%:p:h"))<CR>')
 
 -- LSP keymaps
 local opts = { noremap = true, silent = true }
--- keymap("n", "grd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
+keymap("n", "grd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "LSP Definitions", noremap = true, silent = true })
 -- keymap("n", "<Leader>fo", ":lua vim.lsp.buf.format()<CR>")
 
 -- Fuzzy finders
-keymap("n", "<leader><leader>", "<cmd>FzfLua files<CR>")
-keymap("n", "<leader>fg", "<cmd>FzfLua live_grep<CR>")
+keymap("n", "<leader><leader>", "<cmd>FzfLua files<CR>", { desc = "Find files." })
+keymap("n", "<leader>fg", "<cmd>FzfLua live_grep<CR>", { desc = "Grep files." })
 keymap("n", "<leader>fb", "<cmd>FzfLua oldfiles<CR>", { desc = "Show files history." })
 keymap("n", "<leader>,", "<cmd>FzfLua buffers<CR>", { desc = "Show open buffers." })
 keymap("n", "<leader>.", "<cmd>FzfLua keymaps<CR>", { desc = "Show keymaps." })
@@ -44,3 +44,6 @@ keymap("n", "<leader>e", "<cmd>Neotree toggle<CR>")
 keymap("n", "<Leader>te", "<cmd>tabnew<CR>", s) -- Open a new tab
 keymap("n", "<C-l>", "<cmd>tabnext<CR>")
 keymap("n", "<C-h>", "<cmd>tabprev<CR>")
+
+-- Scrach
+keymap("n", "<leader>st", "<cmd>ScratchToggle<CR>", {desc= "Toggle scrach buffers."})
