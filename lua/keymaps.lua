@@ -46,4 +46,4 @@ keymap("n", "<C-l>", "<cmd>tabnext<CR>")
 keymap("n", "<C-h>", "<cmd>tabprev<CR>")
 
 -- Scrach
-keymap("n", "<leader>st", "<cmd>ScratchToggle<CR>", {desc= "Toggle scrach buffers."})
+keymap("n", "<leader>st", "<cmd>silent! ChknToggle<CR>", { desc = "Toggle scrach buffers." })

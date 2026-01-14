@@ -1,8 +1,5 @@
 vim.pack.add({
-    { src = "https://github.com/navarasu/onedark.nvim" },
-})
-require("onedark").setup({
-    style = 'warm',
+    { src = "https://github.com/catppuccin/nvim" },
 })
 
-vim.cmd.colorscheme("onedark")
+vim.cmd.colorscheme("catppuccin")
