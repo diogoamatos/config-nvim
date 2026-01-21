@@ -20,6 +20,7 @@ vim.pack.add({
     { src = "https://github.com/ericrswanny/chkn.nvim" },
 })
 
+require("nvim-web-devicons").setup({})
 require("chkn").setup({})
 require("neo-tree").setup({
     filesystem = {
@@ -133,6 +134,6 @@ require("noice").setup({
     },
 })
 require("notify").setup({
-    timeout = 5000,
+    timeout = 3000,
     stages = "fade_in_slide_out",
 })
