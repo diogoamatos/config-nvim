@@ -28,12 +28,12 @@ keymap("n", "<leader>cd", '<cmd>lua vim.fn.chdir(vim.fn.expand("%:p:h"))<CR>')
 -- LSP keymaps
 local opts = { noremap = true, silent = true }
 keymap("n", "grd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "LSP Definitions", noremap = true, silent = true })
--- keymap("n", "<Leader>fo", ":lua vim.lsp.buf.format()<CR>")
+keymap("n", "grf", ":lua vim.lsp.buf.format()<CR>")
 
 -- Fuzzy finders
 keymap("n", "<leader><leader>", "<cmd>FzfLua files<CR>", { desc = "Find files." })
 keymap("n", "<leader>fg", "<cmd>FzfLua live_grep<CR>", { desc = "Grep files." })
-keymap("n", "<leader>fb", "<cmd>FzfLua oldfiles<CR>", { desc = "Show files history." })
+keymap("n", "<leader>fh", "<cmd>FzfLua oldfiles<CR>", { desc = "Show files history." })
 keymap("n", "<leader>,", "<cmd>FzfLua buffers<CR>", { desc = "Show open buffers." })
 keymap("n", "<leader>.", "<cmd>FzfLua keymaps<CR>", { desc = "Show keymaps." })
 
@@ -47,3 +47,11 @@ keymap("n", "<C-h>", "<cmd>tabprev<CR>")
 
 -- Scrach
 keymap("n", "<leader>st", "<cmd>silent! ChknToggle<CR>", { desc = "Toggle scrach buffers." })
+
+-- Notify
+keymap({ 'n', 'i', 'x', 'v', 's', 't' }, "<C-l>",
+    function()
+        require("notify").dismiss({ silent = true, pending = true })
+    end,
+    { desc = "Dismiss all Notifications" }
+)
