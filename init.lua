@@ -70,16 +70,14 @@ local function gh(repo) return 'https://github.com/' .. repo end
 -- minimal config plugins
 -- ============================================================
 do
-    vim.pack.add { gh "lewis6991/gitsigns.nvim" }
-    require('gitsigns').setup {
-        signs = {
-            add = { text = '+' }, ---@diagnostic disable-line: missing-fields
-            change = { text = '~' }, ---@diagnostic disable-line: missing-fields
-            delete = { text = '_' }, ---@diagnostic disable-line: missing-fields
-            topdelete = { text = '‾' }, ---@diagnostic disable-line: missing-fields
-            changedelete = { text = '~' }, ---@diagnostic disable-line: missing-fields
-        },
-    }
+    require('plugins.neo-tree')
+    require('plugins.gitsigns')
+
+    vim.pack.add { gh "rcarriga/nvim-notify" }
+    vim.notify = require("notify").setup({
+        timeout = 3000,
+        stages = "slide",
+    })
 
     vim.pack.add { gh "nvim-tree/nvim-web-devicons" }
     require("nvim-web-devicons").setup({})
@@ -97,33 +95,6 @@ do
     -- Scratch pad persisntent
     vim.pack.add { gh "ericrswanny/chkn.nvim" }
     require("chkn").setup({})
-
-    vim.pack.add({
-        {
-            src = 'https://github.com/nvim-neo-tree/neo-tree.nvim',
-            version = vim.version.range('3')
-        },
-        -- dependencies
-        "https://github.com/nvim-lua/plenary.nvim",
-        "https://github.com/MunifTanjim/nui.nvim",
-    })
-    require("neo-tree").setup({
-        filesystem = {
-            follow_current_file = {
-                enabled = true,
-                Leave_open = false,
-            },
-        },
-        event_handlers = {
-            {
-                event = "file_open_requested",
-                handler = function()
-                    require("neo-tree.command").execute({ action = "close" })
-                end
-            }
-        }
-    })
-    vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>")
 end
 
 
