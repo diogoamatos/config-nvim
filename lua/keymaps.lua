@@ -46,7 +46,7 @@ keymap("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up.", noremap = tr
 keymap("n", "J", "mzJ`z", { desc = "Joins current line with line below " })
 keymap("n", "<C-s>", "<cmd>w!<CR>", { desc = "Save current file." })
 keymap("n", "<C-q>", "<cmd>bp|bd #<CR>", { desc = "Close current buffer." })
-keymap("v", "<C-p>", '"_dP')    -- Paste w/o overwriting register
+-- keymap("v", "<C-p>", '"_dP')    -- Paste w/o overwriting register
 keymap("x", "y", [["+y]], s)    -- Yank to the system clipboard in visual mode
 keymap("n", "<C-d>", "<C-d>zz") -- Scroll and center the cursor
 keymap("n", "<C-u>", "<C-u>zz")
