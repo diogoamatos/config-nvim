@@ -79,6 +79,7 @@ do
 	-- Plugins with config
 	require("plugins.neo-tree")
 	require("plugins.gitsigns")
+	require("plugins.noice")
 
 	vim.pack.add({ gh("rcarriga/nvim-notify") })
 	vim.notify = require("notify").setup({
@@ -192,13 +193,13 @@ do
 	require("lsp-config")
 end
 -- ============================================================
--- SECTION 7: FORMATTING
+-- SECTION 6: FORMATTING
 -- conform.nvim setup and keymap
 -- ============================================================
 require("plugins.conform")
 
 -- ============================================================
--- SECTION 8: AUTOCOMPLETE & SNIPPETS
+-- SECTION 7: AUTOCOMPLETE & SNIPPETS
 -- blink.cmp, luasnip and friendly-snippets setup
 -- ============================================================
 do
@@ -211,6 +212,17 @@ do
 	require("plugins.blink-cmp")
 end
 
-require("plugins")
+-- ============================================================
+-- SECTION 8: TREESITTER
+-- Parser installation, syntax highlighting, folds, indentation
+-- ============================================================
+do
+	require("plugins.treesitter")
+end
 
--- require('dap_config')
+-- ============================================================
+-- SECTION 9: Debug, autopairs, lint, indent_lines
+-- ============================================================
+do
+	require("plugins.debug")
+end
