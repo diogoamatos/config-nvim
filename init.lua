@@ -2,8 +2,8 @@
 -- SECTION 1: OPTIONS and KEYMAPS
 -- Core Neovim settings, leaders, options, basic keymaps, basic autocmds
 -- ============================================================
+vim.g.mapleader = " "
 do
-    vim.g.mapleader = " "
     require('configs')
     require('keymaps')
     -- require('autocmds')
@@ -36,7 +36,7 @@ do
             local kind = ev.data.kind
             if kind ~= 'install' and kind ~= 'update' then return end
 
-            if name == 'telescope-fzf-native.nvim' and vim.fn.executable 'make' == 1 then
+            if name == 'fzf-lua' and vim.fn.executable 'make' == 1 then
                 run_build(name, { 'make' }, ev.data.path)
                 return
             end
@@ -98,14 +98,14 @@ do
     vim.pack.add { gh "ericrswanny/chkn.nvim" }
     require("chkn").setup({})
 
-	vim.pack.add({
-    {
-        src = 'https://github.com/nvim-neo-tree/neo-tree.nvim',
-        version = vim.version.range('3')
-    },
-    -- dependencies
-    "https://github.com/nvim-lua/plenary.nvim",
-    "https://github.com/MunifTanjim/nui.nvim",
+    vim.pack.add({
+        {
+            src = 'https://github.com/nvim-neo-tree/neo-tree.nvim',
+            version = vim.version.range('3')
+        },
+        -- dependencies
+        "https://github.com/nvim-lua/plenary.nvim",
+        "https://github.com/MunifTanjim/nui.nvim",
     })
     require("neo-tree").setup({
         filesystem = {
@@ -123,14 +123,44 @@ do
             }
         }
     })
+    vim.keymap.set("n", "<leader>e", "<cmd>Neotree toggle<CR>")
 end
 
 
 -- ============================================================
 -- SECTION 4: SEARCH & NAVIGATION
--- Fzf setup, keymaps, LSP picker mappings
+-- Fzf-lua setup, keymaps, LSP picker mappings
 -- ============================================================
+do
+    -- Fzf-lua configs
+    vim.pack.add { gh "ibhagwan/fzf-lua" }
+    require("fzf-lua").setup({ "default" })
+
+    -- -- Fuzzy finders
+    vim.keymap.set("n", "<leader><leader>", "<cmd>FzfLua files<CR>", { desc = "Find files." })
+    vim.keymap.set("n", "<leader>fg", "<cmd>FzfLua live_grep<CR>", { desc = "Grep files." })
+    vim.keymap.set("n", "<leader>fh", "<cmd>FzfLua oldfiles<CR>", { desc = "Show files history." })
+    vim.keymap.set("n", "<leader>,", "<cmd>FzfLua buffers<CR>", { desc = "Show open buffers." })
+    vim.keymap.set("n", "<leader>.", "<cmd>FzfLua keymaps<CR>", { desc = "Show keymaps." })
+
+    vim.api.nvim_create_autocmd('LspAttach', {
+        callback = function(args)
+            local map = function(keys, func, desc)
+                vim.keymap.set('n', keys, func, { buffer = args.buf, desc = 'LSP: ' .. desc })
+            end
+            local fzf = require('fzf-lua')
+
+            -- Exemplos de atalhos utilizando fzf-lua
+            map('grr', fzf.lsp_references, 'Ir para referências')
+            map('grd', fzf.lsp_definitions, 'Ir para definições')
+            map('<leader>ds', fzf.lsp_document_symbols, 'Listar símbolos do documento')
+            map('<leader>ca', fzf.lsp_code_actions, 'Code Actions')
+        end,
+    })
+end
+
+
 require('plugins')
 
--- require('lsp')
+require('lsp')
 -- require('dap_config')

@@ -3,6 +3,9 @@
 -- SECTION 2: KEYMAPS
 -- ============================================================
 
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 local keymap = vim.keymap.set
 local s = { silent = true }
 
@@ -35,36 +38,26 @@ keymap('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Diagnostics [Q]uic
 -- Navigation and window behavior:
 keymap("n", "<leader>_", "<cmd>vsplit<CR>", s) -- Split the window vertically
 keymap("n", "<leader>-", "<cmd>split<CR>", s)  -- Split the window horizontally
-keymap('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-keymap('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-keymap('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-keymap('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+-- keymap('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+-- keymap('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+-- keymap('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+-- keymap('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- -- Word wrap, movement, and buffer behavior
 keymap("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down.", noremap = true, silent = true })
 keymap("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up.", noremap = true, silent = true })
 keymap("n", "J", "mzJ`z", { desc = "Joins current line with line below " })
 keymap("n", "<C-s>", "<cmd>w!<CR>", { desc = "Save current file." })
-keymap("n", "<C-q>", "<cmd>bp|bd #<CR>", { desc = "Close current buffer." })
+-- keymap("n", "<C-q>", "<cmd>bp|bd #<CR>", { desc = "Close current buffer." })
 -- keymap("v", "<C-p>", '"_dP')    -- Paste w/o overwriting register
 keymap("x", "y", [["+y]], s)    -- Yank to the system clipboard in visual mode
-keymap("n", "<C-d>", "<C-d>zz") -- Scroll and center the cursor
-keymap("n", "<C-u>", "<C-u>zz")
+-- keymap("n", "<C-d>", "<C-d>zz") -- Scroll and center the cursor
+-- keymap("n", "<C-u>", "<C-u>zz")
 
 
 -- LSP keymaps
 -- keymap("n", "grd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "LSP Definitions", noremap = true, silent = true })
 -- keymap("n", "grf", ":lua vim.lsp.buf.format()<CR>")
-
--- Fuzzy finders
-keymap("n", "<leader><leader>", "<cmd>FzfLua files<CR>", { desc = "Find files." })
-keymap("n", "<leader>fg", "<cmd>FzfLua live_grep<CR>", { desc = "Grep files." })
-keymap("n", "<leader>fh", "<cmd>FzfLua oldfiles<CR>", { desc = "Show files history." })
-keymap("n", "<leader>,", "<cmd>FzfLua buffers<CR>", { desc = "Show open buffers." })
-keymap("n", "<leader>.", "<cmd>FzfLua keymaps<CR>", { desc = "Show keymaps." })
-
--- Neo-tree
-keymap("n", "<leader>e", "<cmd>Neotree toggle<CR>")
 
 -- Scrach
 keymap("n", "<leader>st", "<cmd>silent! ChknToggle<CR>", { desc = "Toggle scrach buffers." })

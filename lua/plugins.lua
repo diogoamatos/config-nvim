@@ -4,7 +4,6 @@ vim.pack.add({
         src = "https://github.com/saghen/blink.cmp",
         version = vim.version.range("^1"),
     },
-    { src = "https://github.com/ibhagwan/fzf-lua" },
     { src = "https://github.com/rafamadriz/friendly-snippets" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
     { src = "https://github.com/folke/noice.nvim" },
@@ -61,30 +60,6 @@ require("blink.cmp").setup({
     sources = { default = { "lsp", "buffer", "snippets" } },
 })
 
-local actions = require("fzf-lua.actions")
-require("fzf-lua").setup({
-    winopts = { backdrop = 85 },
-    keymap = {
-        builtin = {
-            ["<C-n>"] = "preview-page-down",
-            ["<C-p>"] = "preview-page-up",
-            -- ["<C-p>"] = "toggle-preview",
-        },
-        fzf = {
-            ["ctrl-a"] = "toggle-all",
-            ["ctrl-t"] = "first",
-            ["ctrl-g"] = "last",
-        },
-    },
-    actions = {
-        files = {
-            ["ctrl-q"] = actions.file_sel_to_qf,
-            -- ["ctrl-n"] = actions.toggle_ignore,
-            ["ctrl-h"] = actions.toggle_hidden,
-            ["enter"] = actions.file_edit_or_qf,
-        },
-    },
-})
 
 require("nvim-treesitter").setup({
     install = { "lua", "html", "python", "bash" },
@@ -103,7 +78,7 @@ require("noice").setup({
     -- you can enable a preset for easier configuration
     presets = {
         bottom_search = true,         -- use a classic bottom cmdline for search
-        command_palette = false,      -- position the cmdline and popupmenu together
+        command_palette = true,      -- position the cmdline and popupmenu together
         long_message_to_split = true, -- long messages will be sent to a split
         inc_rename = false,           -- enables an input dialog for inc-rename.nvim
         lsp_doc_border = false,       -- add a border to hover docs and signature help
