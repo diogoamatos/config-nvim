@@ -6,7 +6,7 @@ do
     vim.g.mapleader = " "
     require('configs')
     require('keymaps')
-    require('autocmds')
+    -- require('autocmds')
 end
 
 -- ============================================================
@@ -58,8 +58,50 @@ do
     })
 end
 
--- require('colorscheme')
+---Because most plugins are hosted on GitHub, you can use the helper
+---function to have less repetition in the following sections.
+---@param repo string
+---@return string
+local function gh(repo) return 'https://github.com/' .. repo end
+
+-- ============================================================
+-- SECTION 3: UI / CORE UX PLUGINS
+-- gitsigns, colorscheme, todo-comments
+-- ============================================================
+do
+    vim.pack.add { gh "lewis6991/gitsigns.nvim" }
+    require('gitsigns').setup {
+        signs = {
+            add = { text = '+' }, ---@diagnostic disable-line: missing-fields
+            change = { text = '~' }, ---@diagnostic disable-line: missing-fields
+            delete = { text = '_' }, ---@diagnostic disable-line: missing-fields
+            topdelete = { text = '‾' }, ---@diagnostic disable-line: missing-fields
+            changedelete = { text = '~' }, ---@diagnostic disable-line: missing-fields
+        },
+    }
+
+    vim.pack.add { gh "nvim-tree/nvim-web-devicons" }
+    require("nvim-web-devicons").setup({})
+
+    vim.pack.add { gh "catppuccin/nvim" }
+    vim.cmd.colorscheme("catppuccin")
+
+    vim.pack.add { gh "nvim-lualine/lualine.nvim" }
+    require('lualine').setup({})
+
+    -- Highlight todo, notes, etc in comments
+    vim.pack.add { gh 'folke/todo-comments.nvim' }
+    require('todo-comments').setup { signs = false }
+
+end
+
+
+-- ============================================================
+-- SECTION 4: SEARCH & NAVIGATION
+-- Fzf setup, keymaps, LSP picker mappings
+-- ============================================================
 require('plugins')
+
 -- require('statusline')
 -- require('lsp')
 -- require('dap_config')

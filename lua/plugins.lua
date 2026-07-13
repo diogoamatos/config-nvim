@@ -1,11 +1,9 @@
 vim.pack.add({
-    { src = "https://github.com/lewis6991/gitsigns.nvim" },
     { src = "https://github.com/mason-org/mason.nvim" },
     {
         src = "https://github.com/saghen/blink.cmp",
         version = vim.version.range("^1"),
     },
-    { src = "https://github.com/nvim-tree/nvim-web-devicons" },
     { src = "https://github.com/ibhagwan/fzf-lua" },
     { src = "https://github.com/rafamadriz/friendly-snippets" },
     { src = "https://github.com/nvim-lua/plenary.nvim" },
@@ -24,7 +22,6 @@ vim.notify = require("notify").setup({
     timeout = 3000,
     stages = "slide",
 })
-require("nvim-web-devicons").setup({})
 require("chkn").setup({})
 require("neo-tree").setup({
     filesystem = {
@@ -42,7 +39,6 @@ require("neo-tree").setup({
         }
     }
 })
-require("gitsigns").setup({ signcolumn = true })
 require("mason").setup({})
 require("blink.cmp").setup({
     fuzzy = { implementation = "prefer_rust_with_warning" },
