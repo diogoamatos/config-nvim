@@ -1,34 +1,60 @@
 -- ~/.config/nvim/lua/keymaps.lua
+-- ============================================================
+-- SECTION 2: KEYMAPS
+-- ============================================================
+
 local keymap = vim.keymap.set
 local s = { silent = true }
 
-vim.g.mapleader = " "
-
 keymap({ "n", "v" }, "<space>", "<Nop>")
+keymap("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
--- Remap for dealing with word wrap and movement
+vim.diagnostic.config {
+    update_in_insert = false,
+    severity_sort = true,
+    float = { border = 'rounded', source = 'if_many' },
+    underline = { severity = { min = vim.diagnostic.severity.WARN } },
+
+    -- Can switch between these as you prefer
+    virtual_text = true,   -- Text shows up at the end of the line
+    virtual_lines = false, -- Text shows up underneath the line, with virtual lines
+
+    -- Auto open the float, so you can easily read the errors when jumping with `[d` and `]d`
+    jump = {
+        on_jump = function(_, bufnr)
+            vim.diagnostic.open_float {
+                bufnr = bufnr,
+                scope = 'cursor',
+                focus = false,
+            }
+        end,
+    },
+}
+keymap('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Diagnostics [Q]uickfix list' })
+
+-- Navigation and window behavior:
+keymap("n", "<leader>_", "<cmd>vsplit<CR>", s) -- Split the window vertically
+keymap("n", "<leader>-", "<cmd>split<CR>", s)  -- Split the window horizontally
+keymap('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+keymap('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+keymap('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+keymap('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- -- Word wrap, movement, and buffer behavior
 keymap("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down.", noremap = true, silent = true })
 keymap("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up.", noremap = true, silent = true })
 keymap("n", "J", "mzJ`z", { desc = "Joins current line with line below " })
-
--- Scroll and center the cursor
--- keymap("n", "<C-d>", "<C-d>zz")
--- keymap("n", "<C-u>", "<C-u>zz")
-
 keymap("n", "<C-s>", "<cmd>w!<CR>", { desc = "Save current file." })
-keymap("n", "<leader>q", "<cmd>q<CR>", s)      -- Quit Neovim
-keymap("n", "<leader>_", "<cmd>vsplit<CR>", s) -- Split the window vertically
-keymap("n", "<leader>-", "<cmd>split<CR>", s)  -- Split the window horizontally
-keymap("v", "<leader>p", '"_dP')               -- Paste without overwriting the default register
-keymap("x", "y", [["+y]], s)                   -- Yank to the system clipboard in visual mode
-keymap("t", "<Esc>", "<C-\\><C-N>")            -- Exit terminal mode
--- Change directory to the current file's directory
-keymap("n", "<leader>cd", '<cmd>lua vim.fn.chdir(vim.fn.expand("%:p:h"))<CR>')
+keymap("n", "<C-q>", "<cmd>bp|bd #<CR>", { desc = "Close current buffer." })
+keymap("v", "<C-p>", '"_dP')    -- Paste w/o overwriting register
+keymap("x", "y", [["+y]], s)    -- Yank to the system clipboard in visual mode
+keymap("n", "<C-d>", "<C-d>zz") -- Scroll and center the cursor
+keymap("n", "<C-u>", "<C-u>zz")
+
 
 -- LSP keymaps
-local opts = { noremap = true, silent = true }
-keymap("n", "grd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "LSP Definitions", noremap = true, silent = true })
-keymap("n", "grf", ":lua vim.lsp.buf.format()<CR>")
+-- keymap("n", "grd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "LSP Definitions", noremap = true, silent = true })
+-- keymap("n", "grf", ":lua vim.lsp.buf.format()<CR>")
 
 -- Fuzzy finders
 keymap("n", "<leader><leader>", "<cmd>FzfLua files<CR>", { desc = "Find files." })
@@ -39,11 +65,6 @@ keymap("n", "<leader>.", "<cmd>FzfLua keymaps<CR>", { desc = "Show keymaps." })
 
 -- Neo-tree
 keymap("n", "<leader>e", "<cmd>Neotree toggle<CR>")
-
--- Tabs navigation
-keymap("n", "<Leader>te", "<cmd>tabnew<CR>", s) -- Open a new tab
-keymap("n", "<C-l>", "<cmd>tabnext<CR>")
-keymap("n", "<C-h>", "<cmd>tabprev<CR>")
 
 -- Scrach
 keymap("n", "<leader>st", "<cmd>silent! ChknToggle<CR>", { desc = "Toggle scrach buffers." })

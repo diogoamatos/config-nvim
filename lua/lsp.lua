@@ -35,4 +35,3 @@ require("conform").setup({
 })
 
 vim.keymap.set("n", "<Leader>ff", function() require('conform').format({ async = true, lsp_fallback = true }) end)
-vim.diagnostic.config({ virtual_text = true })

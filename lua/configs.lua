@@ -26,11 +26,11 @@ vim.o.swapfile = false     -- Disable swap files
 vim.o.expandtab = true     -- Use spaces instead of tabs
 vim.o.tabstop = 4          -- Number of spaces for a tab
 vim.o.softtabstop = 4      -- Number of spaces for a tab when editing
--- vim.o.shiftwidth = 4 -- Number of spaces for autoindent
--- vim.o.shiftround = true -- Round indent to multiple of shiftwidth
-vim.o.list = true     -- Show whitespace characters
-vim.o.number = true   -- Show line numbers
-vim.o.numberwidth = 1 -- Width of the line number column
+vim.o.shiftwidth = 4       -- Number of spaces for autoindent
+vim.o.shiftround = true    -- Round indent to multiple of shiftwidth
+vim.o.list = true          -- Show whitespace characters
+vim.o.number = true        -- Show line numbers
+vim.o.numberwidth = 1      -- Width of the line number column
 
 -- text wrap
 -- opt.wrap = true
