@@ -67,6 +67,7 @@ local function gh(repo) return 'https://github.com/' .. repo end
 -- ============================================================
 -- SECTION 3: UI / CORE UX PLUGINS
 -- gitsigns, colorscheme, todo-comments
+-- minimal config plugins
 -- ============================================================
 do
     vim.pack.add { gh "lewis6991/gitsigns.nvim" }
@@ -93,6 +94,35 @@ do
     vim.pack.add { gh 'folke/todo-comments.nvim' }
     require('todo-comments').setup { signs = false }
 
+    -- Scratch pad persisntent
+    vim.pack.add { gh "ericrswanny/chkn.nvim" }
+    require("chkn").setup({})
+
+	vim.pack.add({
+    {
+        src = 'https://github.com/nvim-neo-tree/neo-tree.nvim',
+        version = vim.version.range('3')
+    },
+    -- dependencies
+    "https://github.com/nvim-lua/plenary.nvim",
+    "https://github.com/MunifTanjim/nui.nvim",
+    })
+    require("neo-tree").setup({
+        filesystem = {
+            follow_current_file = {
+                enabled = true,
+                Leave_open = false,
+            },
+        },
+        event_handlers = {
+            {
+                event = "file_open_requested",
+                handler = function()
+                    require("neo-tree.command").execute({ action = "close" })
+                end
+            }
+        }
+    })
 end
 
 
@@ -102,6 +132,5 @@ end
 -- ============================================================
 require('plugins')
 
--- require('statusline')
 -- require('lsp')
 -- require('dap_config')

@@ -6,38 +6,14 @@ vim.pack.add({
     },
     { src = "https://github.com/ibhagwan/fzf-lua" },
     { src = "https://github.com/rafamadriz/friendly-snippets" },
-    { src = "https://github.com/nvim-lua/plenary.nvim" },
-    { src = "https://github.com/MunifTanjim/nui.nvim" },
-    {
-        src = "https://github.com/nvim-neo-tree/neo-tree.nvim",
-        version = vim.version.range("3"),
-    },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
     { src = "https://github.com/folke/noice.nvim" },
     { src = "https://github.com/rcarriga/nvim-notify" },
-    { src = "https://github.com/ericrswanny/chkn.nvim" },
 })
 
 vim.notify = require("notify").setup({
     timeout = 3000,
     stages = "slide",
-})
-require("chkn").setup({})
-require("neo-tree").setup({
-    filesystem = {
-        follow_current_file = {
-            enabled = true,
-            Leave_open = false,
-        },
-    },
-    event_handlers = {
-        {
-            event = "file_open_requested",
-            handler = function()
-                require("neo-tree.command").execute({ action = "close" })
-            end
-        }
-    }
 })
 require("mason").setup({})
 require("blink.cmp").setup({
