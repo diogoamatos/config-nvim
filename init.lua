@@ -76,6 +76,7 @@ end
 -- minimal config plugins
 -- ============================================================
 do
+	-- Plugins with config
 	require("plugins.neo-tree")
 	require("plugins.gitsigns")
 
@@ -195,6 +196,20 @@ end
 -- conform.nvim setup and keymap
 -- ============================================================
 require("plugins.conform")
+
+-- ============================================================
+-- SECTION 8: AUTOCOMPLETE & SNIPPETS
+-- blink.cmp, luasnip and friendly-snippets setup
+-- ============================================================
+do
+	vim.pack.add({ { src = gh("L3MON4D3/LuaSnip"), version = vim.version.range("2.*") } })
+	require("luasnip").setup({})
+
+	vim.pack.add({ gh("rafamadriz/friendly-snippets") })
+	require("luasnip.loaders.from_vscode").lazy_load()
+
+	require("plugins.blink-cmp")
+end
 
 require("plugins")
 
