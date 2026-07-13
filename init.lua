@@ -1,9 +1,9 @@
 vim.g.mapleader = " "
 
+require('configs')
 require('colorscheme')
 require('autocmds')
 require('plugins')
-require('configs')
 require('keymaps')
 require('statusline')
 require('lsp')
