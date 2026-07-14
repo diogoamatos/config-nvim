@@ -153,7 +153,7 @@ do
 
 			--  Most Language Servers support renaming across files, etc.
 			map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
-			map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
+			map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction")
 
 			local client = vim.lsp.get_client_by_id(args.data.client_id)
 			if client and client:supports_method("textDocument/documentHighlight", args.buf) then

@@ -42,6 +42,6 @@ require("blink.cmp").setup({
 		},
 	},
 
-	sources = { default = { "lsp", "path", "snippets" } },
+	sources = { default = { "lsp", "buffer", "snippets" } },
 	snippets = { preset = "luasnip" },
 })
