@@ -33,7 +33,7 @@ vim.diagnostic.config({
 		end,
 	},
 })
-keymap("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Diagnostics [Q]uickfix list" })
+keymap("n", "<F4>", vim.diagnostic.setloclist, { desc = "Diagnostics [Q]uickfix list" })
 
 -- Navigation and window behavior:
 keymap("n", "<leader>_", "<cmd>vsplit<CR>", s) -- Split the window vertically
@@ -48,15 +48,13 @@ keymap("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down.", noremap = 
 keymap("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up.", noremap = true, silent = true })
 keymap("n", "J", "mzJ`z", { desc = "Joins current line with line below " })
 keymap("n", "<C-s>", "<cmd>w!<CR>", { desc = "Save current file." })
-keymap("n", "<leader>q", "<cmd>bp|bd #<CR>", { desc = "Close current buffer." })
 -- keymap("v", "<C-p>", '"_dP')    -- Paste w/o overwriting register
 keymap("x", "y", [["+y]], s) -- Yank to the system clipboard in visual mode
--- keymap("n", "<C-d>", "<C-d>zz") -- Scroll and center the cursor
--- keymap("n", "<C-u>", "<C-u>zz")
+keymap("n", "<C-d>", "<C-d>zz") -- Scroll and center the cursor
+keymap("n", "<C-u>", "<C-u>zz")
 
 -- LSP keymaps
 -- keymap("n", "grd", "<cmd>lua vim.lsp.buf.definition()<CR>", { desc = "LSP Definitions", noremap = true, silent = true })
--- keymap("n", "grf", ":lua vim.lsp.buf.format()<CR>")
 
 -- Scrach
 keymap("n", "<leader>st", "<cmd>silent! ChknToggle<CR>", { desc = "Toggle scrach buffers." })
