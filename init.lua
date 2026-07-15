@@ -81,6 +81,9 @@ do
 	require("plugins.gitsigns")
 	require("plugins.noice")
 
+	vim.pack.add({ gh("windwp/nvim-autopairs") })
+	require("nvim-autopairs").setup({})
+
 	vim.pack.add({ gh("rcarriga/nvim-notify") })
 	vim.notify = require("notify").setup({
 		timeout = 3000,
