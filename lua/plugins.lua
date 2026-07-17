@@ -3,11 +3,6 @@ vim.pack.add({
 	{ src = "https://github.com/folke/noice.nvim" },
 })
 
-require("nvim-treesitter").setup({
-	install = { "lua", "html", "python", "bash" },
-	build = ":TSupdate",
-})
-
 require("noice").setup({
 	lsp = {
 		-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
