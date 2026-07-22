@@ -84,6 +84,9 @@ do
 	vim.pack.add({ gh("windwp/nvim-autopairs") })
 	require("nvim-autopairs").setup({})
 
+	vim.pack.add({ gh("lukas-reineke/indent-blankline.nvim") })
+	require("ibl").setup({})
+
 	vim.pack.add({ gh("rcarriga/nvim-notify") })
 	vim.notify = require("notify").setup({
 		timeout = 3000,
