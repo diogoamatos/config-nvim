@@ -25,6 +25,9 @@ local servers = {
 		settings = {
 			python = {
 				pythonPath = get_python_path(workspace),
+				analysis = {
+					useLibraryCodeForTypes = true,
+				},
 			},
 		},
 	},
