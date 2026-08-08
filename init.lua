@@ -97,8 +97,10 @@ do
 	vim.pack.add({ gh("nvim-tree/nvim-web-devicons") })
 	require("nvim-web-devicons").setup({})
 
-	vim.pack.add({ gh("catppuccin/nvim") })
-	vim.cmd.colorscheme("catppuccin")
+	-- vim.pack.add({ gh("catppuccin/nvim") })
+	-- vim.cmd.colorscheme("catppuccin")
+	vim.pack.add({ gh("nyoom-engineering/oxocarbon.nvim") })
+	vim.cmd.colorscheme("oxocarbon")
 
 	vim.pack.add({ gh("nvim-lualine/lualine.nvim") })
 	require("lualine").setup({})
